@@ -86,13 +86,6 @@ export type ShallowLocations = {
 export type Location = {
     id: number;
     name: string;
-    game_indices: {
-      game_index: number;
-      generation: {
-        name: string;
-        url: string;
-      };
-    }[];
     names: {
       name: string,
       language: {
@@ -100,14 +93,6 @@ export type Location = {
         url: string;
       }
     }[],
-    region: {
-      name: string;
-      url: string;
-    };
-     areas: {
-      name: string;
-      url: string;
-    }[];
     pokemon_encounters: {
       pokemon: {
         name: string;
@@ -119,4 +104,21 @@ export type Location = {
 export type Pokemon = {
     id: number;
     name: string;
+    height: number;
+    weight: number;
+    stats: {
+      base_stat: number;
+      effort: number;
+      stat: {
+        name: string;
+        url: string;
+      };
+    }[];
+    types: {
+      slot: number;
+      type: {
+        name: string;
+        url: string;
+      };
+    }[];
   };

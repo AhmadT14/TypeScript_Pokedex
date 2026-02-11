@@ -4,6 +4,7 @@ import { commandMapb } from './command_mapb.js';
 import { PokeAPI, Pokemon } from './PokeApi.js';
 import { commandExplore } from './command_explore.js';
 import { commandCatch } from './command_catch.js';
+import { commandInspect } from './command_inspect.js';
 const { createInterface} = await import('node:readline');
 const { commandExit } = await import('./command_exit.js');
 const { commandHelp } =  await import('./command_help.js');
@@ -54,6 +55,11 @@ export function initState(): State {
       name: "catch",
       description: "Attempts to catch a Pokemon.",
       callback: commandCatch,
+  },
+  inspect: {
+      name: "inspect",
+      description: "Displays detailed information about a specific Pokemon.",
+      callback: commandInspect,
   },
 }
 }
