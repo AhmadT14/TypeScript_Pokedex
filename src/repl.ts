@@ -15,6 +15,11 @@ async function startREPL(initState: () => State) {
     const commandName = words[0];
     const command = commands[commandName];
     if (command) {
+      if(commandName==='explore'){
+        await command.callback(state,words[1]);
+        rl.prompt();
+        return;
+      }
       await command.callback(state);
     } else {
       console.log(`Unknown command: ${commandName}`);

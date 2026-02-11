@@ -2,6 +2,7 @@ import { Interface } from 'node:readline';
 import { commandMap } from './command_map.js';
 import { commandMapb } from './command_mapb.js';
 import { PokeAPI } from './PokeApi.js';
+import { commandExplore } from './command_explore.js';
 const { createInterface} = await import('node:readline');
 const { commandExit } = await import('./command_exit.js');
 const { commandHelp } =  await import('./command_help.js');
@@ -9,7 +10,7 @@ const { commandHelp } =  await import('./command_help.js');
 export type CLICommand = {
   name: string;
   description: string;
-  callback: ((state: State) => Promise<void>);
+  callback: ((state: State,location?:string) => Promise<void>);
 };
 
 export type State = {CLICommands: Record<string, CLICommand>, rl: Interface,PokeAPI: PokeAPI,nextLocationsURL: string | null, prevLocationsURL: string | null};
@@ -42,6 +43,11 @@ export function initState(): State {
       name: "mapb",
       description: "Displays the names of the previous 20 location areas in the Pokemon world",
       callback: commandMapb,
+  },
+  explore: {
+      name: "explore",
+      description: "Displays the names of the Pokemon that can be found in a given location area.",
+      callback: commandExplore,
   },
 }
 }

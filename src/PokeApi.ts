@@ -32,17 +32,17 @@ export class PokeAPI {
   }
 
   async fetchLocation(locationName: string): Promise<Location> {
-    if(this.checkCache(PokeAPI.baseURL + "/location/" + locationName)) {
-      const entry = this.cache.get<Location>(PokeAPI.baseURL + "/location/" + locationName);
+    if(this.checkCache(PokeAPI.baseURL + "/location-area/" + locationName)) {
+      const entry = this.cache.get<Location>(PokeAPI.baseURL + "/location-area/" + locationName);
       if(entry) return entry.val;
     }
     try {      
-      const response = await fetch(PokeAPI.baseURL + "/location/" + locationName, { method: "GET" });
+      const response = await fetch(PokeAPI.baseURL + "/location-area/" + locationName, { method: "GET" });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
-      this.cache.add<Location>(PokeAPI.baseURL + "/location/" + locationName, data);
+      this.cache.add<Location>(PokeAPI.baseURL + "/location-area/" + locationName, data);
       return data;
     } catch (error) {
       console.error(`Failed to fetch location: ${error}`);
@@ -86,4 +86,10 @@ export type Location = {
       name: string;
       url: string;
     }[];
-  };
+    pokemon_encounters: {
+      pokemon: {
+        name: string;
+        url: string;
+      };
+    }[];
+}
