@@ -1,6 +1,6 @@
 import { State } from './state';
 
-export async function commandExplore(state: State, location?: string): Promise<void> {
+export async function commandExplore(state: State, location: string): Promise<void> {
   const { PokeAPI} = state;
    if (!location) {
     console.log('Please provide a location to explore.');
