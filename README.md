@@ -1,6 +1,10 @@
-# TypeScript Pokedex CLI
+# Pokedex CLI
 
-A command-line Pokedex application built with TypeScript that interacts with the [PokeAPI](https://pokeapi.co/). This project is part of the [Boot.dev](https://boot.dev) platform for backend learning.
+A command-line Pokedex application built with TypeScript that interacts with the [PokeAPI](https://pokeapi.co/).
+
+## Acknowledgments
+
+This project was developed as part of the Boot.dev backend development journey and was guided throughout the learning process.
 
 ## Features
 
