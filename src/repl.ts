@@ -1,5 +1,6 @@
+import { State } from './state.js';
+
 function cleanInput(str: string): string[]{return str.toLowerCase().trim().split(/\s+/)}
-import { State } from './state';
 
 async function startREPL(initState: () => State) {
   const state = initState();

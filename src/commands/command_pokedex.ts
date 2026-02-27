@@ -1,4 +1,4 @@
-import { State } from './state';
+import { State } from '../state.js';
 
 export async function commandPokedex(state: State): Promise<void> {
     if (Object.keys(state.pokedex).length === 0) {

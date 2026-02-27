@@ -1,4 +1,4 @@
-import { State } from './state';
+import { State } from '../state.js';
 
 export async function commandInspect(state: State, pokemon: string): Promise<void> {
     if (!pokemon) {

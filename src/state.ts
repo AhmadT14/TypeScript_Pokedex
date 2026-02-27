@@ -1,14 +1,14 @@
 import { Interface } from 'node:readline';
-import { commandMap } from './command_map.js';
-import { commandMapb } from './command_mapb.js';
-import { PokeAPI, Pokemon } from './PokeApi.js';
-import { commandExplore } from './command_explore.js';
-import { commandCatch } from './command_catch.js';
-import { commandInspect } from './command_inspect.js';
-import { commandPokedex } from './command_pokedex.js';
+import { commandMap } from './commands/command_map.js';
+import { commandMapb } from './commands/command_mapb.js';
+import { PokeAPI, Pokemon } from './api/PokeApi.js';
+import { commandExplore } from './commands/command_explore.js';
+import { commandCatch } from './commands/command_catch.js';
+import { commandInspect } from './commands/command_inspect.js';
+import { commandPokedex } from './commands/command_pokedex.js';
 const { createInterface} = await import('node:readline');
-const { commandExit } = await import('./command_exit.js');
-const { commandHelp } =  await import('./command_help.js');
+const { commandExit } = await import('./commands/command_exit.js');
+const { commandHelp } =  await import('./commands/command_help.js');
 
 export type CLICommand = {
   name: string;
